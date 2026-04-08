@@ -650,6 +650,79 @@
     50% { opacity: 0; }
   }
 
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    border: 1px solid var(--border);
+    padding: 2rem;
+    background: var(--bg-card);
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .project-card:hover { border-color: var(--accent); background: var(--bg-card-hover); }
+
+  .project-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+  }
+
+  .project-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+  }
+
+  .project-link:hover { opacity: 0.7; }
+
+  .project-desc {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .project-card.coming-soon {
+    border-style: dashed;
+    opacity: 0.5;
+  }
+
+  .project-card.coming-soon:hover {
+    border-color: var(--border);
+    background: var(--bg-card);
+    cursor: default;
+  }
+
+  .coming-soon-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
   @media (max-width: 768px) {
     nav { padding: 1rem 1.2rem; }
     .nav-links { display: none; }
@@ -659,6 +732,7 @@
     section { padding: 4rem 0; }
     .about-content { grid-template-columns: 1fr; gap: 2rem; }
     .expertise-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
     .certs-grid { grid-template-columns: repeat(2, 1fr); }
     .timeline { padding-left: 2rem; }
     .timeline-dot { left: -2.35rem; }
@@ -678,6 +752,7 @@
     <a href="#experience">experience</a>
     <a href="#certs">certifications</a>
     <a href="#skills">skills</a>
+    <a href="#projects">projects</a>
     <a href="#contact">contact</a>
   </div>
   <div class="nav-status">
@@ -705,6 +780,7 @@
     <div class="hero-cta">
       <a href="#experience" class="btn btn-primary">view experience</a>
       <a href="#contact" class="btn">get in touch</a>
+      <a href="./Agnew_Resume_2026.pdf" target="_blank" class="btn">download resume</a>
     </div>
   </section>
 
@@ -773,7 +849,7 @@
       <div class="expertise-card">
         <div class="expertise-icon">[ CSPM ]</div>
         <h3>Cloud Security Posture Mgmt</h3>
-        <p>Implement Prisma Cloud CSPM policies across multi-cloud environments, improving visibility and reducing non-compliant resources through automated detection/remediation of misconfigurations.</p>
+        <p>Implement Prisma Cloud CSPM policies across multi-cloud environments, improving visibility and reducing non-compliant resources through automated detection of misconfigurations.</p>
         <div class="expertise-tags">
           <span class="tag">Prisma Cloud</span>
           <span class="tag blue">Azure</span>
@@ -784,7 +860,7 @@
       <div class="expertise-card">
         <div class="expertise-icon">[ SIEM ]</div>
         <h3>Security Monitoring &amp; Automation</h3>
-        <p>Integrate Prisma Cloud with Splunk SIEM to centralize audit logs and remediation events, enabling real-time compliance dashboards. </p>
+        <p>Integrate Prisma Cloud with Splunk SIEM to centralize audit logs and remediation events, enabling real-time compliance dashboards. Build automated remediation CLIs to correct non-compliant resources at scale.</p>
         <div class="expertise-tags">
           <span class="tag">Splunk</span>
           <span class="tag blue">Azure DevOps</span>
@@ -849,7 +925,7 @@
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-date">AUG 2022 &mdash; MAY 2024</div>
-        <div class="timeline-role">Teaching Assistant &mdash; Systems Administration Course</div>
+        <div class="timeline-role">Teaching Assistant &mdash; Sys. Admin</div>
         <div class="timeline-company">Purdue University</div>
         <ul class="timeline-bullets">
           <li>Oversaw and taught labs in networking configurations covering IP and DNS</li>
@@ -951,12 +1027,41 @@
     </div>
   </section>
 
+  <section id="projects" class="fade-in">
+    <div class="section-label">builds</div>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card coming-soon">
+        <div class="project-card-header">
+          <div class="project-title">Coming Soon</div>
+          <span class="coming-soon-label">In Progress</span>
+        </div>
+        <div class="project-desc">Currently working on a personal project to showcase hands-on cloud security and automation skills. Stay tuned.</div>
+        <div class="project-tags">
+          <span class="tag">TBD</span>
+        </div>
+      </div>
+      <div class="project-card coming-soon">
+        <div class="project-card-header">
+          <div class="project-title">Coming Soon</div>
+          <span class="coming-soon-label">Planned</span>
+        </div>
+        <div class="project-desc">More projects on the way. Check back or follow along on GitHub.</div>
+        <div class="project-tags">
+          <span class="tag">TBD</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="contact">
     <div class="contact-row fade-in">
       <h2>Let's <span class="accent">connect</span>.</h2>
       <div class="contact-links">
         <a href="mailto:elijahagnew@gmail.com" class="contact-link">elijahagnew@gmail.com</a>
         <a href="tel:7574020182" class="contact-link">757-402-0182</a>
+        <a href="https://github.com/ecagnew" target="_blank" class="contact-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/elijah-agnew-346a9a1b3" target="_blank" class="contact-link">LinkedIn</a>
       </div>
     </div>
   </section>
@@ -965,14 +1070,4 @@
 </div>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
-
+  const observer = new IntersectionObserver((entries
